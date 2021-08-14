@@ -1,7 +1,7 @@
 <?php
 $user = $_POST['username'];
 $pwd = $_POST['password'];
-if($user == 'zhaoyian' && $pwd == 'zya123.0') {
+if($user == '123' && $pwd == '123') {
     //echo '匹配正确！', '<br>', '用户名:' . $user, '<br>', '密码:' . $pwd;
     header('Refresh:0;url=artists.php');
 }else{
