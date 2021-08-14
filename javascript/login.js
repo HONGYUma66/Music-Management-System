@@ -1,7 +1,7 @@
 function check(){
     var name = form1.username.value;
     var pwd = form1.password.value;
-    if(name == "" && pwd == ""){
+    if(name == "123" && pwd == "123"){
         form1.submit();
     }else if (name == "" || name == null){
         alert("请输入用户名！");
