@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>热歌榜实时热评</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../javascript/js1.js"></script>
+</head>
+<body>
+<div class="top1">
+    <div class="left">
+        <a href="../php/hotsong.php"><button class="btn2"></button></a>
+    </div>
+    <div class="center">
+        <h1 align="center">热歌榜热门评论</h1>
+    </div>
+    <div class="right">
+        <a href="../php/recommendation.php"><button class="btn3"></button></a>
+    </div>
+</div>
+<div class="bottom">
+    <form method="post" action="../php/hotsong_edit.php">
+    <table border="1px" align="center" class="class1">
+        <tr>
+        <th>歌曲名</th>
+        <th>歌曲评论</th>
+        </tr>
+        <td style="text-align:center;" width="20%" rowspan="<?php echo $num+1;?>">
+            <h2><?php echo $name;?></h2>
+            <a>
+                <input type="button" onclick="disp_prompt()" value="发表我的评论" />
+            </a>
+        </td>
+        <?php foreach($comments as $k => $comment): ?>
+        <tr>
+
+            <td style="text-align:center;" width="80%"><?php echo $comment['COMMENTS'];?></td>
+        </tr>
+        <?php endforeach;?>
+    </table>
+    </form>
+</div>
+</body>
+
+</html>

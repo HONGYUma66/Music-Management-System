@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../javascript/login.js"></script>
+</head>
+
+<body class="body1">
+<div class="top2">
+    <h1 align="center" >欢迎登录音乐管理系统</h1>
+</div>
+<div class="div2">
+<form name="form1" method="post" action="../php/login.php">
+
+    <table width="300" border="3" cellspacing="0" cellpadding="0" bordercolor="#FFFFFF"
+           bordercolordark="#CCCCCC" align="center">
+        <tr>
+            <td height="30" colspan="2" bgcolor="#eeeeee">·用户登录</td>
+        </tr>
+        <tr>
+            <td width="69" height="30" bgcolor="#eeeeee" align="center">用户名:</td>
+            <td width="162" bgcolor="#eeeeee"><input name="username" type="text" id="user" placeholder="请输入用户名"></td>
+        </tr>
+        <tr>
+            <td height="30" bgcolor="#eeeeee" align="center">密&nbsp;&nbsp;码:</td>
+            <td bgcolor="#eeeeee"><input type="password" name="password" placeholder="请输入密码"></td>
+        </tr>
+        <tr>
+            <td height="30" colspan="2" align="center" bgcolor="#eeeeee"><input name="button" type="submit" class="btn_grey"
+            value="登录" onclick="check()">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input name="submit" type="reset" class="btn_grey" value="重置"></td>
+        </tr>
+    </table>
+
+</form>
+</div>
+</body>
+
+</html>

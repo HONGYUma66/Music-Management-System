@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐管理系统</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../javascript/jquery.min.js"></script>
+    <script src="../javascript/js1.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>分页插件</title>
+    <!--引入分页样式文件-->
+    <link rel="stylesheet" href="../css/toPage.css">
+</head>
+<body>
+<div class="top1">
+    <div class="left">
+        <a href="../php/hotsong.php"><button class="btn2"></button></a>
+    </div>
+    <div class="center">
+        <h1 align="center" >音乐管理系统</h1>
+    </div>
+    <div class="right">
+        <a href="../php/recommendation.php"><button class="btn3"></button></a>
+    </div>
+</div>
+
+<!--先引入jquery-->
+<script src="../javascript/jquery.min.js"></script>
+<!--再引入toPage.js-->
+<script src="../javascript/toPage.js"></script>
+
+<div class="bottom">
+
+<table border="1px" align="center" class="class1">
+    <thead>
+        <tr>
+            <th>序号</th>
+            <th>歌手</th>
+            <th>是否关注</th>
+            <th>
+                <input id="key" type="text" placeholder="请搜索..." style="width: 150px;"/>
+                <input type="button" value="下一个" onclick="next()" />
+                <input type="button" value="上一个" onclick="previous()"/>
+            </th>
+        </tr>
+    </thead>
+
+    <?php foreach($artists as $k => $artist): ?>
+    <tr>
+        <td style="text-align:center;" width="5%"><?php echo $page_size*($page-1)+$k+1;?></td>
+        <td style="text-align:center;" width="35%">
+            <a href="../php/music.php?id=<?php echo utf8_encode($artist['ARTIST_NAME']);?>"><?php echo $artist['ARTIST_NAME'];?></a>
+        </td>
+        <td style="text-align:center;" width="15%">
+            <a href="../php/artist_add.php?id=<?php echo $artist['ARTIST_ID'];?>">
+                <button><?php echo $artist['isLove'] == '是' ? '已关注' : '点击关注';?></button>
+            </a>
+        </td>
+        <td style="text-align:center;" width="25%">
+            <a href="https://music.163.com/artist?id=<?php echo $artist['ARTIST_ID'];?>"><button>歌手主页</button></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="../php/artist_delete.php?id=<?php echo $artist['ARTIST_ID'];?>" onclick="return confirm('是否确定删除该歌手？')"><button>删除歌手</button></a>
+        </td>
+    </tr>
+    <?php endforeach;?>
+</table>
+</div>
+<!--分页容器_2-->
+<div class="class6" align="center">
+    <a href='../php/artists.php?page=1'><button class="prev_page">首页</button></a>&nbsp;|&nbsp;
+    <a href='../php/artists.php?page=<?php echo $page-1;?>'><button class="prev_page">上一页</button></a>&nbsp;|&nbsp;
+    <span class="page_total">当前为第<?php echo $page;?>页</span>&nbsp;|&nbsp;
+    <a href='../php/artists.php?page=<?php echo $page+1;?>'><button class="next_page">下一页</button></a> &nbsp;|&nbsp;
+    <a href='../php/artists.php?page=<?php echo $page_count;?>'><button class="next_page">尾页</button></a>
+
+    <form action="../php/artists.php" method="post">
+        <br>
+    <span class="page_total">共 <?php echo $page_count;?> 页, 跳转到第</span><input class="input_page_num" size="1px" type="text" name="page" value="<?php echo $page;?>"><span class="page_text">页</span>
+    <input class="to_page_num" type="submit" value="确定">
+</form>
+    <br><br><br>
+</div>
+
+
+</body>
+</html>

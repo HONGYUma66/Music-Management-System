@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐管理系统-添加歌曲</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../javascript/js1.js"></script>
+</head>
+<body>
+
+    <div class="top1">
+        <div class="left">
+            <a href="../php/hotsong.php"><button class="btn2"></button></a>
+        </div>
+        <div class="center">
+            <h1 align="center">音乐管理系统-添加歌曲</h1>
+        </div>
+        <div class="right">
+            <a href="../php/recommendation.php"><button class="btn3"></button></a>
+        </div>
+    </div>
+<div class="bottom">
+    <form method="post" action="../php/music_add.php">
+        <table border="1px" align="center" class="class1">
+            <tr>
+                <td style="text-align:center;">歌曲名</td>
+                    <td>
+                        <input type="text" name="MUSIC_NAME" size="58">
+                    </td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">歌手名</td>
+                    <td>
+                        <input type="text" name="ARTIST_NAME" size="58">
+                    </td>
+            </tr>
+            <tr>
+                    <td style="text-align:center;">是否设为我喜欢</td>
+                    <td style="text-align:center;">
+                        <label>
+                            <input type="radio" name="ISLOVE" value="是" >是
+                            <input type="radio" name="ISLOVE" value="否" checked>否
+                        </label>
+                    </td>
+            </tr>
+            <tr>
+                    <td style="text-align:center;">歌曲评论</td>
+                    <td style="text-align:center;">
+                        <textarea rows="5" cols="77" placeholder="发表你此刻的想法..." name="comment"></textarea>
+                    </td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">歌曲ID</td>
+                <td>
+                    <input type="text" name="MUSIC_ID" value="" size="58">
+                    <button onclick="click1()">生成链接并提交</button>
+                </td>
+            </tr>
+        </table>
+        <br>
+    </form>
+</div>
+</body>
+</html>

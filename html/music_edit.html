@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐管理系统-编辑</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+
+    <div class="top1">
+        <div class="left">
+            <a href="../php/hotsong.php"><button class="btn2"></button></a>
+        </div>
+        <div class="center">
+            <h1 align="center">音乐管理系统-编辑歌曲</h1>
+        </div>
+        <div class="right">
+            <a href="../php/recommendation.php"><button class="btn3"></button></a>
+        </div>
+    </div>
+<div class="bottom">
+
+<form action="../php/music_update.php" method="post">
+    <input type="hidden" name="id" value="<?php echo $music['MUSIC_ID'];?>">
+
+<table border="1px" align="center" class="class1">
+
+    <tr>
+        <td class="tableleft" height="5%" style="text-align:center;">歌曲名</td>
+        <td >
+            <input name="MUSIC_NAME" size="58" value="<?php echo $music['MUSIC_NAME'];?>">
+        </td>
+    </tr>
+    <tr>
+        <td class="tableleft" height="5%" style="text-align:center;">歌手名</td>
+        <td>
+            <input name="ARTIST_NAME" size="58" value="<?php echo $music['ARTIST_NAME'];?>">
+        </td>
+    </tr>
+    <tr>
+        <td class="tableleft" height="5%" style="text-align:center;">是否设为我喜欢</td>
+        <td>
+            <label>
+            <input type="radio" name="ISLOVE" value="是">是
+            <input type="radio" name="ISLOVE" value="否" checked>否
+            </label>
+        </td>
+    </tr>
+    <tr>
+       <td class="tableleft" height="5%" style="text-align:center;">歌曲评论</td>
+        <td class="tableleft">
+            <textarea rows="5" cols="60" placeholder="发表你此刻的想法..." name="comment"></textarea>
+        </td>
+    </tr>
+</table>
+    <br>
+    <div align="center">
+    <input type="submit" name="submit" value="保存">
+    </div>
+</form>
+</div>
+</body>
+</html>

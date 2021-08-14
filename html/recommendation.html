@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>每日推荐</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="../javascript/js1.js"></script>
+</head>
+<body>
+
+<div class="top1">
+    <div class="left">
+        <a href="../php/hotsong.php"><button class="btn2"></button></a>
+    </div>
+    <div class="center">
+        <h1 align="center">音乐管理系统-每日推荐</h1>
+    </div>
+    <div class="right">
+        <a href="../php/recommendation.php"><button class="btn3"></button></a>
+    </div>
+</div>
+
+<div class="bottom">
+    <table border="1px" align="center" class="class1">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>歌曲ID</th>
+            <th>歌曲名</th>
+            <th>播放地址</th>
+            <th>是否加入我的歌单</th>
+        </tr>
+        </thead>
+
+        <?php foreach($recommendations as $k => $recommendation): ?>
+        <tr>
+            <td style="text-align:center;" width="5%"><?php echo $k+1;?></td>
+            <td style="text-align:center;" width="15%"><?php echo $recommendation['MUSIC_ID'];?></td>
+            <td style="text-align:center;" width="30%">
+                <a><?php echo $recommendation['MUSIC_NAME'];?></a>
+            </td>
+            <td style="text-align:center;" width="15%">
+                <a href="http://music.163.com/song/media/outer/url?id=<?php echo $recommendation['MUSIC_ID'];?>.mp3"><button>点击播放</button></a>
+            </td>
+            <td style="text-align:center;" width="10%">
+                <a href="../php/recommendation_add.php?id=<?php echo $recommendation['MUSIC_ID'];?>">
+                    <button><?php echo $recommendation['isLove'] == '是' ? '已收藏' : '点击收藏';?></button>
+                </a>
+            </td>
+            <td style="text-align:center;" width="20%">
+                <a href="../php/recommendation_edit.php?id=<?php echo $recommendation['MUSIC_ID'];?>"><button>编辑歌曲</button></a>
+            </td>
+        </tr>
+        <?php endforeach;?>
+    </table>
+</div>
+</body>
+</html>
